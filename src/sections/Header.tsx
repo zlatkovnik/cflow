@@ -1,5 +1,6 @@
 import { Button, makeStyles, Toolbar, Typography } from '@material-ui/core'
 import React from 'react'
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
     header: {
@@ -14,13 +15,14 @@ const useStyles = makeStyles(() => ({
 
 function Header() {
     const classes = useStyles();
+    const history = useHistory();
     return (
         <div>
             <Toolbar className={classes.header}>
                 <Typography>Cash Flow</Typography>
                 <div className={classes.spacer}></div>
-                <Button variant="contained">Transactions</Button>
-                <Button variant="contained" color="secondary">New Flow</Button>
+                <Button variant="contained" onClick={() => history.push("/transactions")}>Transactions</Button>
+                <Button variant="contained" onClick={() => history.push("/create")} color="secondary">New Flow</Button>
             </Toolbar>
         </div>
     )

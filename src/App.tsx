@@ -8,6 +8,7 @@ import {
     Route
   } from "react-router-dom";
 import HomePage from './pages/HomePage';
+import CreateTransactionPage from './pages/CreateTransactionPage';
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
         <Router>
         <Header />
         <Switch>
-          <Route path="/new">
-            <div>Ljuta dobra</div>
+          <Route path="/create">
+            <CreateTransactionPage />
           </Route>
           <Route path="/transactions">
             <TransactionsPage />
