@@ -1,0 +1,10 @@
+{
+    "transactions": [
+        {
+            "id": 1,
+            "type": "in",
+            "name": "Glupost 2",
+            "description": "Neki opis"
+        }
+    ]
+}
