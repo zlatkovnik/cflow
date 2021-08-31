@@ -1,10 +1,52 @@
 {
-    "transactions": [
-        {
-            "id": 1,
-            "type": "in",
-            "name": "Glupost 2",
-            "description": "Neki opis"
-        }
-    ]
+  "transactions": [
+    {
+      "id": 1,
+      "type": "in",
+      "name": "Glupost 2",
+      "description": "Neki opis"
+    },
+    {
+      "name": "David",
+      "type": "in",
+      "description": "Nikolic",
+      "id": 2
+    },
+    {
+      "name": "David",
+      "type": "in",
+      "description": "Nikolic",
+      "id": 3
+    },
+    {
+      "name": "David",
+      "type": "in",
+      "description": "Nikolic",
+      "id": 4
+    },
+    {
+      "name": "David",
+      "type": "in",
+      "description": "Nikolic",
+      "id": 5
+    },
+    {
+      "name": "David",
+      "type": "in",
+      "description": "Nikolic",
+      "id": 6
+    },
+    {
+      "name": "David",
+      "type": "in",
+      "description": "Nikolic",
+      "id": 7
+    },
+    {
+      "name": "David",
+      "type": "in",
+      "description": "Nikolic",
+      "id": 8
+    }
+  ]
 }

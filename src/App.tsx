@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import TransactionsPage from './pages/TransactionsPage';
-import Header from './sections/Header';
+import Header from './features/sections/Header';
 import {
     BrowserRouter as Router,
     Switch,

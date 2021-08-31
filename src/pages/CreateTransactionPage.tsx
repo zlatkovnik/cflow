@@ -1,5 +1,7 @@
 import React, { SyntheticEvent, useState } from 'react'
 import { FormControl, FormControlLabel, FormGroup, FormHelperText, Input, InputLabel, makeStyles, Switch, TextField, Button } from '@material-ui/core';
+import TransactionsService from '../services/transactions.service';
+import { ITransaction } from '../models/Transaction.model';
 
 const useStyles = makeStyles(() => ({
     form: {
@@ -16,20 +18,32 @@ const useStyles = makeStyles(() => ({
 
 function CreateTransactionPage() {
     const classes = useStyles();
-    const [name, setName] = useState('');
+    const [transaction, setTransaction] = useState<ITransaction>({name: '', type: 'out'});
     const [typeIn, setTypeIn] = useState(false);
 
-    const submit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        event.preventDefault();
+    const transactionsService = TransactionsService.get();
 
+    const submit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        event.preventDefault(); 
+        transaction.type = typeIn ? 'in' : 'out';
+        transactionsService.add(transaction as ITransaction).then(res => {
+            console.log(res);
+        });
     }
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        let t = {...transaction};
+        t[event.target.name as 'name' | 'description'] = event.target.value;
+        setTransaction(t);
+    }
+
     return (
         <div>
             <form>
                 <FormGroup row className={classes.form}>
                     <FormControl>
                         <InputLabel>Name</InputLabel>
-                        <Input />
+                        <Input name="name" onChange={handleChange} />
                         <FormHelperText>Short description</FormHelperText>
                     </FormControl>
                     <FormControlLabel control={
@@ -42,7 +56,7 @@ function CreateTransactionPage() {
                         }
                         label="Type in?" />
                     <FormControl>
-                        <TextField label="Description" multiline />
+                        <TextField name="description" onChange={handleChange} label="Description" multiline />
                         <FormHelperText>Short description</FormHelperText>
                     </FormControl>
                     <Button type="submit" variant="contained" color="primary" onClick={submit}>Submit</Button>

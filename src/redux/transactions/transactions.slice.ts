@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Transaction } from '../../models/Transaction.model'
+import { ITransaction } from '../../models/Transaction.model'
 import TransactionsService from '../../services/transactions.service';
 import { AppThunk, RootState } from '../store'
 
 export interface TransactionsState {
-    transactions: Transaction[]
+    transactions: ITransaction[]
 }
 
 const initialState: TransactionsState = {
@@ -15,10 +15,10 @@ export const transactionsSlice = createSlice({
     name: 'transactions',
     initialState,
     reducers: {
-        add: (state, action: PayloadAction<Transaction>) => {
+        add: (state, action: PayloadAction<ITransaction>) => {
             state.transactions = [...state.transactions, action.payload]
         },
-        set: (state, action: PayloadAction<Transaction[]>) => {
+        set: (state, action: PayloadAction<ITransaction[]>) => {
             state.transactions = action.payload
         },
         remove: (state, action: PayloadAction<number>) => {
